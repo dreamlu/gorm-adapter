@@ -23,7 +23,6 @@ import (
 
 	"github.com/casbin/casbin/v2/model"
 	"github.com/casbin/casbin/v2/persist"
-	"github.com/jackc/pgconn"
 	"gorm.io/driver/mysql"
 	"gorm.io/driver/postgres"
 
@@ -289,14 +288,7 @@ func (a *Adapter) createDatabase() error {
 	if err != nil {
 		return err
 	}
-	if a.driverName == "postgres" {
-		if err = db.Exec("CREATE DATABASE " + a.databaseName).Error; err != nil {
-			// 42P04 is	duplicate_database
-			if err.(*pgconn.PgError).Code == "42P04" {
-				return nil
-			}
-		}
-	} else if a.driverName != "sqlite3" {
+	if a.driverName != "sqlite3" {
 		err = db.Exec("CREATE DATABASE IF NOT EXISTS " + a.databaseName).Error
 	}
 	if err != nil {

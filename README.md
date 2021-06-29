@@ -28,7 +28,7 @@ You may find other 3rd-party supported DBs in Gorm website or other places.
 
 ## Installation
 
-    go get github.com/casbin/gorm-adapter/v3
+    go get github.com/dreamlu/gorm-adapter/v3
 
 ## Simple Example
 
@@ -37,7 +37,7 @@ package main
 
 import (
 	"github.com/casbin/casbin/v2"
-	gormadapter "github.com/casbin/gorm-adapter/v3"
+	gormadapter "github.com/dreamlu/gorm-adapter/v3"
 	_ "github.com/go-sql-driver/mysql"
 )
 
@@ -76,7 +76,7 @@ package main
 
 import (
 	"github.com/casbin/casbin/v2"
-	gormadapter "github.com/casbin/gorm-adapter/v3"
+	gormadapter "github.com/dreamlu/gorm-adapter/v3"
 	"gorm.io/gorm"
 )
 
